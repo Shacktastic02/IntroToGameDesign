@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Block Archer</title>
+        <style>
+            *{
+                margin: 0px;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canv"></canvas>
+        </canvas>
+        <script> src= "/engine/scene.js"</script>
+        
+        <script> src= "/game/player.js"</script>
+        <script> src= "/game/ally.js"</script>
+        <script> src= "/game/projectile.js"</script>
+        <script> src= "/game/enemy.js"</script>
+
+        <script>
+///////////////////////////////////////////////GLOBALS/////////////////////////////////////////////////////////////////
+           
+           let curScene
+//////////////////////////////////////////////FUNCTIONS////////////////////////////////////////////////////////////////
+
+            //game loop
+            function tick(){
+                curScene.update()
+                curScene.draw()
+            }
+
+
+
+            function setup(){
+                window.addEventListener("keydown", keydown)
+                window.addEventListener("keyup", keyup)
+
+                canvas = document.getElementById("canv")
+                ctx = canvas.getContext("2d")
+
+                canvas.width = window.innerWidth
+                canvas.height = window.innerHeight
+            }
+
+//////////////////////////////////////////////////CALLS////////////////////////////////////////////////////////////////          
+            setup()
+            start()
+            setInterval(tick, msBtwFrames)
+            
+        </script>
+    </body>
+</html>
