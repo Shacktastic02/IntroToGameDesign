@@ -1,25 +1,30 @@
-class Enemy{
+class Ally{
+
+    posX
+    posY
+    health
+
     constructor(posX, posY) {
         this.posX = posX
         this.posY = posY
-        let health = 10
+        let health = 100
+    }
 
-        function getPos() {
+        getPos(){
             return [posX, posY]
         }
 
-        function setPos(posX, posY){
+        setPos(posX, posY){
             this.posX = posX
             this.posY = posY
         }
 
-        function getHP(){
+        getHP(){
             return health
         }
 
-        function setHP(damage){
+        setHP(damage){
             health -= damage
         }
 
-    }
 }

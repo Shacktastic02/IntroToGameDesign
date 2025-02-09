@@ -1,8 +1,13 @@
-class Ally{
+class Enemy{
+
+    posX
+    posY
+    health
+
     constructor(posX, posY) {
         this.posX = posX
         this.posY = posY
-        let health = 10
+        let health = 100
 
         function getPos() {
             return [posX, posY]
