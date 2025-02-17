@@ -2,10 +2,6 @@ class Scene{
 
     subscenes = []
 
-    constructor(){
-        
-    }
-
 
     update(){
         for(let subscene of this.subscenes){
@@ -14,7 +10,9 @@ class Scene{
     }
 
     draw(){
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+       // ctx.clearRect(0, 0, canvas.width, canvas.height)
         for(let subscene of this.subscenes){
             subscene.draw()
         }

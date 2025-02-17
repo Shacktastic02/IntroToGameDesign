@@ -38,7 +38,7 @@
 
             //game loop
             function tick(){
-                //curScene.update()
+                curScene.update()
                 curScene.draw(ctx, canvas)
             }
 
@@ -49,8 +49,7 @@
                 canvas = document.getElementById("canv")
                 ctx = canvas.getContext("2d")
 
-                canvas.width = window.innerWidth
-                canvas.height = window.innerHeight
+
 
             }
 

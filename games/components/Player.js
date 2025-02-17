@@ -10,11 +10,10 @@ class Player extends Scene{
         this.posX = x
         this.posY = y
         this.health = 100
-        this.speed = 5
+        this.speed = 50
     }
 
     draw(){
-
         ctx.beginPath()
         ctx.fillStyle = "black"
         ctx.strokeStyle = "grey"
@@ -22,6 +21,23 @@ class Player extends Scene{
         ctx.rect(this.posX, this.posY, 50, 75)
         ctx.fill()
         ctx.stroke()
+    }
+
+    update(){
+        //implement movement
+        if (Input.keysdown.includes("KeyW")) {
+            this.posY -= this.speed * Time.delta
+        }
+        if (Input.keysdown.includes("KeyS")) {
+            this.posY += this.speed * Time.delta
+        }
+        if (Input.keysdown.includes("KeyA")) {
+            this.posX -= this.speed * Time.delta
+        }
+        if (Input.keysdown.includes("KeyD")) {
+            this.posX += this.speed * Time.delta
+        }
+      
     }
 
 }
