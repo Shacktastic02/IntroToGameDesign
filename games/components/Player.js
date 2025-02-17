@@ -12,14 +12,7 @@ class Player extends Scene{
         speed = 5
     }
 
-    getPos() {
-        return [posX, posY]
-    }
 
-    move(posX, posY){
-        this.posX += posX
-        this.posY += posY
-    }
 
     getHP(){
         return health
@@ -37,7 +30,8 @@ class Player extends Scene{
         this.speed = newSpeed
     }
 
-    draw(){
+    draw(ctx){
+
         ctx.beginPath()
         ctx.fillStyle = "black"
         ctx.strokeStyle = "White"

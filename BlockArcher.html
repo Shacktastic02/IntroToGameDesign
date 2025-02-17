@@ -13,20 +13,20 @@
     <body>
         <canvas id="canv"></canvas>
 
-        <script> src= "/engine/Scene.js"</script>
-        <script> src= "/engine/Collisions.js"</script>
-        <script> src= "/engine/Input.js"</script>
-        <script> src= "/engine/Time.js"</script>
+        <script src="engine/Scene.js"></script>
+        <script src="engine/Collisions.js"></script>
+        <script src="engine/Input.js"></script>
+        <script src="engine/Time.js"></script>
         
-        <script> src= "/game/components/Player.js"</script>
-        <script> src= "/game/components/ally.js"</script>
-        <script> src= "/game/components/projectile.js"</script>
-        <script> src= "/game/components/enemy.js"</script>
+        <script src="games/components/Player.js"></script>
+        <script src="games/components/ally.js"></script>
+        <script src="games/components/projectile.js"></script>
+        <script src="games/components/enemy.js"></script>
 
-        <script> src= "/games/scenes/Level.js"</script>
-        <script> src= "/games/scenes/Loss.js"</script>
-        <script> src= "/games/scenes/Menu.js"</script>
-        <script> src= "/games/scenes/Victory.js"</script>
+        <script src="games/scenes/Level.js"></script>
+        <script src="games/scenes/Loss.js"></script>
+        <script src="games/scenes/Menu.js"></script>
+        <script src="games/scenes/Victory.js"></script>
 
         <script>
 ///////////////////////////////////////////////GLOBALS/////////////////////////////////////////////////////////////////
@@ -39,18 +39,17 @@
             //game loop
             function tick(){
                 curScene.update()
-                curScene.draw()
+                curScene.draw(ctx)
             }
 
             function setup(){
-                window.addEventListener("keydown", keydown)
-                window.addEventListener("keyup", keyup)
+                window.addEventListener("keydown", Input.keydown)
+                window.addEventListener("keyup", Input.keyup)
 
                 canvas = document.getElementById("canv")
                 ctx = canvas.getContext("2d")
 
-                canvas.width = window.innerWidth
-                canvas.height = window.innerHeight
+
             }
 
 //////////////////////////////////////////////////CALLS////////////////////////////////////////////////////////////////          
@@ -58,7 +57,7 @@
             curScene = new Level()
             setup()
             curScene.Start
-            setInterval(tick, msBtwFrames)
+            setInterval(tick, Time.msBtwFrames)
             
         </script>
     </body>

@@ -1,4 +1,4 @@
-class Level extends scene{
+class Level extends Scene{
 
     player
 
@@ -6,5 +6,6 @@ class Level extends scene{
         player = new Player(200, 500)
         this.subscenes.push(player)
     }
+
 
 }

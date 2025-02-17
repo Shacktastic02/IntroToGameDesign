@@ -2,19 +2,25 @@ class Scene{
 
     subscenes = []
 
+    constructor(){
+        
+    }
 
 
     update(){
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-        for(let i=0; i<this.subscenes.length(); i++){
-            subscenes[i].update()
+        for(let subscene of this.subscenes){
+            subscene.update()
         }
     }
 
     draw(){
-        for(let i=0; i<this.subscenes.length(); i++){
-            subscenes[i].draw()
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+        for(let subscene of this.subscenes){
+            subscene.draw()
         }
+        
     }
 
     start(){
