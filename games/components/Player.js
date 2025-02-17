@@ -5,43 +5,23 @@ class Player extends Scene{
     health
     speed
 
-    constructor(posX, posY) {
-        this.posX = posX
-        this.posY = posY
-        health = 100
-        speed = 5
+    constructor(x, y) {
+        super()
+        this.posX = x
+        this.posY = y
+        this.health = 100
+        this.speed = 5
     }
 
-
-
-    getHP(){
-        return health
-    }
-
-    setHP(damage){
-        health -= damage
-    }
-
-    getSpeed(){
-        return speed
-    }
-
-    setSpeed(newSpeed){
-        this.speed = newSpeed
-    }
-
-    draw(ctx){
+    draw(){
 
         ctx.beginPath()
         ctx.fillStyle = "black"
-        ctx.strokeStyle = "White"
+        ctx.strokeStyle = "grey"
         ctx.lineWidth = 5
         ctx.rect(this.posX, this.posY, 50, 75)
         ctx.fill()
         ctx.stroke()
     }
 
-    update(){
-
-    }
 }

@@ -38,8 +38,8 @@
 
             //game loop
             function tick(){
-                curScene.update()
-                curScene.draw(ctx)
+                //curScene.update()
+                curScene.draw(ctx, canvas)
             }
 
             function setup(){
@@ -49,6 +49,8 @@
                 canvas = document.getElementById("canv")
                 ctx = canvas.getContext("2d")
 
+                canvas.width = window.innerWidth
+                canvas.height = window.innerHeight
 
             }
 
@@ -56,7 +58,7 @@
             
             curScene = new Level()
             setup()
-            curScene.Start
+            curScene.start()
             setInterval(tick, Time.msBtwFrames)
             
         </script>
