@@ -14,14 +14,21 @@
         <canvas id="canv"></canvas>
 
         <script src="engine/Scene.js"></script>
-        <script src="engine/Collisions.js"></script>
-        <script src="engine/Input.js"></script>
         <script src="engine/Time.js"></script>
-        
-        <script src="games/components/Player.js"></script>
-        <script src="games/components/ally.js"></script>
-        <script src="games/components/projectile.js"></script>
-        <script src="games/components/enemy.js"></script>
+        <script src="engine/Input.js"></script>
+        <script src="engine/GameObject.js"></script>
+        <script src="engine/Engine.js"></script>
+        <script src="engine/Component.js"></script>
+        <script src="engine/Collisions.js"></script>
+
+        <script src="engine/components/Rectangle.js"></script>
+        <script src="engine/components/Transform.js"></script>
+        <script src="engine/components/WASDMovement.js"></script>
+
+        <script src="games/objects/Ally.js"></script>
+        <script src="games/objects/Enemy.js"></script>
+        <script src="games/objects/Player.js"></script>
+        <script src="games/objects/Projectile.js"></script>
 
         <script src="games/scenes/Level.js"></script>
         <script src="games/scenes/Loss.js"></script>
@@ -31,33 +38,30 @@
         <script>
 ///////////////////////////////////////////////GLOBALS/////////////////////////////////////////////////////////////////
            
-           let curScene
            let canvas
            let ctx
 //////////////////////////////////////////////FUNCTIONS////////////////////////////////////////////////////////////////
 
             //game loop
             function tick(){
-                curScene.update()
-                curScene.draw(ctx, canvas)
+                Engine.curScene.update()
+                Engine.curScene.draw()
             }
 
             function setup(){
                 window.addEventListener("keydown", Input.keydown)
                 window.addEventListener("keyup", Input.keyup)
+               // window.addEventListener("click", Input.clickHandler)
 
                 canvas = document.getElementById("canv")
                 ctx = canvas.getContext("2d")
-
-
-
             }
 
 //////////////////////////////////////////////////CALLS////////////////////////////////////////////////////////////////          
             
-            curScene = new Level()
             setup()
-            curScene.start()
+            Engine.curScene = new Level()
+            Engine.curScene.start()
             setInterval(tick, Time.msBtwFrames)
             
         </script>

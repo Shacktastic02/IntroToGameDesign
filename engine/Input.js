@@ -13,4 +13,5 @@ class Input{
             Input.keysdown.splice(i,1)
         }
     }
+    
 }
