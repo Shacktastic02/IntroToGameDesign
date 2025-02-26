@@ -6,11 +6,11 @@ class Player extends GameObject{
         super.start()
     }
 
-    takeDamage(dmg){
-        this.health -= dmg
-        if(this.health <= 0){
-            this.isDead = true
-        }
-    }
+    // takeDamage(dmg){
+    //     this.health -= dmg
+    //     if(this.health <= 0){
+    //         this.isDead = true
+    //     }
+    // }
 
 }
