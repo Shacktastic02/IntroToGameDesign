@@ -4,9 +4,26 @@ class Scene{
 
 
     update(){
+
+        for(let gameObject of this.gameObjects){
+            if(!gameObject.started){
+                gameObject.start()
+                gameObject.started = true
+            }
+        }
+
         for(let gameObject of this.gameObjects){
             gameObject.update()
         }
+
+        let keptGameObjects = []
+        for(let gameObject of this.gameObjects){
+            if(!gameObject.markToDestroy){
+                keptGameObjects.push(gameObject)
+            }
+        }
+        this.gameObjects = keptGameObjects
+
     }
 
     draw(){
@@ -21,16 +38,18 @@ class Scene{
     start(){ 
         for(let gameObject of this.gameObjects){
             gameObject.start()
+            gameObject.started = true
         }
     }
 
-    addGameObject(gameObject, x = 0, y = 0, r = 1, len = 1, wid = 1){
+    addGameObject(gameObject, x = 0, y = 0, r = 1, len = 1, wid = 1, speed = 10){
         this.gameObjects.push(gameObject)
         gameObject.transform.x = x
         gameObject.transform.y = y
         gameObject.transform.r = r
         gameObject.transform.len = len
         gameObject.transform.wid = wid
+        gameObject.transform.speed = speed
     }
 
     findGameObject(name){

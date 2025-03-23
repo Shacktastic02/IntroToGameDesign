@@ -20,6 +20,7 @@
         <script src="engine/Engine.js"></script>
         <script src="engine/Component.js"></script>
         <script src="engine/Collisions.js"></script>
+        <script src="engine/Globals.js"></script>
 
         <script src="engine/components/Rectangle.js"></script>
         <script src="engine/components/Transform.js"></script>
@@ -36,6 +37,10 @@
         <script src="games/scenes/Menu.js"></script>
         <script src="games/scenes/Victory.js"></script>
 
+        <script src="games/components/NPCMovement.js"></script>
+        <script src="games/components/LevelController.js"></script>
+        <script src="games/components/NumCollisions.js"></script>
+
         <script>
 ///////////////////////////////////////////////GLOBALS/////////////////////////////////////////////////////////////////
            
@@ -45,8 +50,13 @@
 
             //game loop
             function tick(){
-                Engine.curScene.update()
-                Engine.curScene.draw()
+                if(Engine.nextScene){
+                    Engine.curScene = Engine.nextScene
+                    Engine.nextScene = null
+                    Engine.curScene.start()
+                }
+                Engine.currScene.update()
+                Engine.currScene.draw()
             }
 
             function setup(){
@@ -61,8 +71,8 @@
 //////////////////////////////////////////////////CALLS////////////////////////////////////////////////////////////////          
             
             setup()
-            Engine.curScene = new Level()
-            Engine.curScene.start()
+            Engine.currScene = new Level()
+            Engine.currScene.start()
             setInterval(tick, Time.msBtwFrames)
             
         </script>

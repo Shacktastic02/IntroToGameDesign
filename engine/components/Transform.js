@@ -4,4 +4,5 @@ class Transform extends Component{
     r
     len
     wid
+    speed
 }

@@ -1,0 +1,3 @@
+class Loss extends Scene{
+
+}
