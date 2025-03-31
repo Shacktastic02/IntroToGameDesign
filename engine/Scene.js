@@ -1,10 +1,21 @@
 class Scene{
 
     gameObjects = []
+    started
 
+    constructor(backgroundColor = "white"){
+        this.backgroundColor = backgroundColor
+        this.started = false
+    }
 
     update(){
+        //start if not already started
+        if(!this.started){
+            this.start()
+            this.started = true
+        }
 
+        //start objects if not started
         for(let gameObject of this.gameObjects){
             if(!gameObject.started){
                 gameObject.start()
@@ -12,10 +23,12 @@ class Scene{
             }
         }
 
+        //update objects
         for(let gameObject of this.gameObjects){
             gameObject.update()
         }
 
+        //filter out objects to destroy
         let keptGameObjects = []
         for(let gameObject of this.gameObjects){
             if(!gameObject.markToDestroy){
@@ -27,9 +40,11 @@ class Scene{
     }
 
     draw(){
-        canvas.width = window.innerWidth
-        canvas.height = window.innerHeight
         ctx.clearRect(0,0,canvas.width, canvas.height)
+        ctx.fillStyle = this.backgroundColor
+        ctx.beginPath()
+        ctx.rect(0, 0, canvas.width, canvas.height)
+        ctx.fill()
         for(let gameObject of this.gameObjects){
             gameObject.draw()
         }
@@ -40,16 +55,15 @@ class Scene{
             gameObject.start()
             gameObject.started = true
         }
+        this.started = true
     }
 
-    addGameObject(gameObject, x = 0, y = 0, r = 1, len = 1, wid = 1, speed = 10){
+    addGameObject(gameObject, x = 0, y = 0, r = 1, h=1){
         this.gameObjects.push(gameObject)
         gameObject.transform.x = x
         gameObject.transform.y = y
         gameObject.transform.r = r
-        gameObject.transform.len = len
-        gameObject.transform.wid = wid
-        gameObject.transform.speed = speed
+        gameObject.transform.h = h
     }
 
     findGameObject(name){

@@ -52,4 +52,25 @@ class GameObject{
         }
     }
 
+    destroy(){
+        this.markToDestroy = true
+    }
+
+    findComponent(classType){
+        for(let component of this.components){
+            if(component instanceof classType)
+                return component
+        }
+    }
+
+    findComponents(classType){
+        let toReturn = []
+        for(let component of this.components){
+            if(component instanceof classType){
+                toReturn.push(component)
+            }
+        }
+        return toReturn
+    }
+
 }

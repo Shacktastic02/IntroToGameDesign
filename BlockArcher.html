@@ -2,9 +2,15 @@
 <html>
     <head>
         <title>Block Archer</title>
+        <!-- centering logic based on W3schools' page -->
         <style>
             *{
                 margin: 0px;
+                /* position:absolute;
+                top: 50%;
+                left: 50%;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%); */
                 overflow: hidden;
             }
         </style>
@@ -21,59 +27,40 @@
         <script src="engine/Component.js"></script>
         <script src="engine/Collisions.js"></script>
         <script src="engine/Globals.js"></script>
+        <script src="engine/Vector2.js"></script>
 
         <script src="engine/components/Rectangle.js"></script>
         <script src="engine/components/Transform.js"></script>
         <script src="engine/components/WASDMovement.js"></script>
         <script src="engine/components/Circle.js"></script>
+        <script src="engine/components/Line.js"></script>
+        <script src="engine/components/MouseMovement.js"></script>
+        <script src="engine/components/RigidBody.js"></script>
+        <script src="engine/components/Text.js"></script>
 
-        <script src="games/objects/Ally.js"></script>
-        <script src="games/objects/Enemy.js"></script>
-        <script src="games/objects/Player.js"></script>
-        <script src="games/objects/Projectile.js"></script>
+        <script src="games/blockArcher/objects/Ally.js"></script>
+        <script src="games/blockArcher/objects/Enemy.js"></script>
+        <script src="games/blockArcher/objects/Player.js"></script>
+        <script src="games/blockArcher/objects/Projectile.js"></script>
 
-        <script src="games/scenes/Level.js"></script>
-        <script src="games/scenes/Loss.js"></script>
-        <script src="games/scenes/Menu.js"></script>
-        <script src="games/scenes/Victory.js"></script>
+        <script src="games/blockArcher/scenes/Level.js"></script>
+        <script src="games/blockArcher/scenes/Loss.js"></script>
+        <script src="games/blockArcher/scenes/Menu.js"></script>
+        <script src="games/blockArcher/scenes/Victory.js"></script>
 
-        <script src="games/components/NPCMovement.js"></script>
-        <script src="games/components/LevelController.js"></script>
-        <script src="games/components/NumCollisions.js"></script>
+        <script src="games/blockArcher/components/NPCMovement.js"></script>
+        <script src="games/blockArcher/components/LevelController.js"></script>
+        <script src="games/blockArcher/components/NumCollisions.js"></script>
 
         <script>
 ///////////////////////////////////////////////GLOBALS/////////////////////////////////////////////////////////////////
            
            let canvas
-           let ctx
-//////////////////////////////////////////////FUNCTIONS////////////////////////////////////////////////////////////////
-
-            //game loop
-            function tick(){
-                if(Engine.nextScene){
-                    Engine.curScene = Engine.nextScene
-                    Engine.nextScene = null
-                    Engine.curScene.start()
-                }
-                Engine.currScene.update()
-                Engine.currScene.draw()
-            }
-
-            function setup(){
-                window.addEventListener("keydown", Input.keydown)
-                window.addEventListener("keyup", Input.keyup)
-               // window.addEventListener("click", Input.clickHandler)
-
-                canvas = document.getElementById("canv")
-                ctx = canvas.getContext("2d")
-            }
-
-//////////////////////////////////////////////////CALLS////////////////////////////////////////////////////////////////          
+           let ctx        
             
-            setup()
             Engine.currScene = new Level()
-            Engine.currScene.start()
-            setInterval(tick, Time.msBtwFrames)
+            Engine.start()
+            
             
         </script>
     </body>
