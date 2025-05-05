@@ -3,7 +3,7 @@ class PlayerController extends Component{
 
     start(speed = 15){
         this.speed = speed
-        this.power = 100
+        this.power = 150
     }
 
     update(){

@@ -48,6 +48,7 @@
 
         <script src="games/blockArcher/objects/Ally.js"></script>
         <script src="games/blockArcher/objects/Enemy.js"></script>
+        <script src="games/blockArcher/objects/HitBox.js"></script>
         <script src="games/blockArcher/objects/Player.js"></script>
         <script src="games/blockArcher/objects/Powerbar.js"></script>
         <script src="games/blockArcher/objects/Projectile.js"></script>
@@ -58,6 +59,8 @@
         <script src="games/blockArcher/scenes/Victory.js"></script>
 
         <script src="games/blockArcher/components/AllyController.js"></script>
+        <script src="games/blockArcher/components/DebugTool.js"></script>
+        <script src="games/blockArcher/components/EnemyController.js"></script>
         <script src="games/blockArcher/components/LevelController.js"></script>
         <script src="games/blockArcher/components/Healthpool.js"></script>
         <script src="games/blockArcher/components/PlayerController.js"></script>
@@ -69,7 +72,7 @@
            let canvas
            let ctx        
             
-            Engine.currScene = new Level()
+            Engine.nextScene = new Level()
             Engine.start()
             
             

@@ -29,7 +29,7 @@ class Collisions{
 
         if (Collisions.isPointInRectangle(circCenter, left, right, top, bottom)) return true
         if (Collisions.circleLineSegment(circCenter, r, ul, ur)) return true
-        if (Collisions.circleLineSegment(circCenter, r, ul, lr)) return true
+        if (Collisions.circleLineSegment(circCenter, r, ur, lr)) return true
         if (Collisions.circleLineSegment(circCenter, r, lr, ll)) return true
         if (Collisions.circleLineSegment(circCenter, r, ll, ul)) return true
         return false

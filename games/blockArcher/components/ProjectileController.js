@@ -20,7 +20,7 @@ class ProjectileController extends Component{
             let enemies = Engine.currScene.findGameObjects("enemy")
             for(let enemy of enemies){
                 if(Collisions.inCollision(this.parent, enemy)){
-                    enemy.findComponent(HealthPool).hp -= 5
+                    enemy.findComponent(HealthPool).hp -= 50
                     this.parent.destroy()
                 }
             }

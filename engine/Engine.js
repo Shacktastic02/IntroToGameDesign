@@ -1,12 +1,14 @@
 class Engine{
     static currScene
     static nextScene
+    static lastms = 0
 
-    static tick(){
+    static tick(ms){
+        Time.delta = (ms - Engine.lastms)/1000
+        Engine.lastms = ms
         if(Engine.nextScene){
             Engine.curScene = Engine.nextScene
             Engine.nextScene = null
-            Engine.curScene.start()
         }
         
         Engine.currScene.update()
@@ -15,6 +17,7 @@ class Engine{
         ctx.clearRect(0,0,canvas.width, canvas.height)
         Engine.currScene.draw()
         Input.update()
+        requestAnimationFrame(Engine.tick)
     }
 
     static setup(){
@@ -38,7 +41,6 @@ class Engine{
 
     static start(){
         Engine.setup()
-        Engine.currScene.start()
-        setInterval(Engine.tick, Time.msBtwFrames)
+        requestAnimationFrame(Engine.tick)
     }
 }
