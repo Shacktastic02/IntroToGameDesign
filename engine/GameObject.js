@@ -3,18 +3,30 @@ class GameObject{
     components
     started
     markToDestroy
+    shown
+    layer
 
-    constructor(name){
+    constructor(name, layer = 0){
         this.name = name
         this.components = []
         this.addComponent(new Transform())
         this.started = false
         this.markToDestroy = false
         this.numCollisions = 0
+        this.shown = true
+        this.layer = layer
     }
 
     get transform(){
         return this.components[0]
+    }
+
+    show(){
+        this.shown = true
+    }
+
+    hide(){
+        this.shown = false
     }
 
     addComponent(component){
@@ -48,7 +60,13 @@ class GameObject{
 
     draw(){
         for(let component of this.components){
-            component.draw()
+            if(this.shown)component.draw()
+        }
+    }
+
+    drawUI(){
+        for(let component of this.components){
+            if(this.shown)component.drawUI()
         }
     }
 

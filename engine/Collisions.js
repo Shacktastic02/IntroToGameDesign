@@ -1,9 +1,17 @@
 class Collisions{
 
-    //older collision function
-    static inCollision(x1, y1, r1, x2, y2, r2){
-        let distance = Math.sqrt((x1 - x2)**2 + (y1-y2)**2)
-        return distance < r1 + r2
+    
+    static inCollision(obj1, obj2){
+        if(obj1.findComponent(Circle) && obj2.findComponent(Circle)) return Collisions.circleCircle(obj1, obj2)
+        if(obj1.findComponent(Circle) && obj2.findComponent(Rectangle)) return Collisions.circleRectangle(obj1, obj2)
+        if(obj1.findComponent(Circle) && obj2.findComponent(Line)) return Collisions.circleLine(obj1, obj2)
+        if(obj1.findComponent(Rectangle) && obj2.findComponent(Circle)) return Collisions.rectangleCircle(obj1, obj2)
+        if(obj1.findComponent(Rectangle) && obj2.findComponent(Rectangle)) return Collisions.rectangleRectangle(obj1, obj2)
+        if(obj1.findComponent(Rectangle) && obj2.findComponent(Line)) return Collisions.rectangleLine(obj1, obj2)
+        if(obj1.findComponent(Line) && obj2.findComponent(Circle)) return Collisions.lineCircle(obj1, obj2)
+        if(obj1.findComponent(Line) && obj2.findComponent(Rectangle)) return Collisions.lineRectangle(obj1, obj2)
+        if(obj1.findComponent(Line) && obj2.findComponent(Line)) return Collisions.lineLine(obj1, obj2)
+        
     }
 
 
@@ -17,13 +25,13 @@ class Collisions{
         let circCenter = Vector2.fromGameObject(circ)
         let r = circ.transform.r
         let [left, right, top, bottom] = Collisions.getRectangleSides(rect)
-        let [ul, ur, lr, ll] = Collisions.getRectangleSegments(rect)
+        let [ul, ur, lr, ll] = Collisions.getRectCorners(rect)
 
         if (Collisions.isPointInRectangle(circCenter, left, right, top, bottom)) return true
-        if (Collisions.circleLineSegment(circCenter, radius, ul, ur)) return true
-        if (Collisions.circleLineSegment(circCenter, radius, ul, lr)) return true
-        if (Collisions.circleLineSegment(circCenter, radius, lr, ll)) return true
-        if (Collisions.circleLineSegment(circCenter, radius, ll, ul)) return true
+        if (Collisions.circleLineSegment(circCenter, r, ul, ur)) return true
+        if (Collisions.circleLineSegment(circCenter, r, ul, lr)) return true
+        if (Collisions.circleLineSegment(circCenter, r, lr, ll)) return true
+        if (Collisions.circleLineSegment(circCenter, r, ll, ul)) return true
         return false
 
     }
@@ -88,14 +96,23 @@ class Collisions{
         return [left, right, top, bottom]
     }
 
-    static getRectangleSegments(rect){
+    static getRectCorners(rect){
         let [left, right, top, bottom] = this.getRectangleSides(rect)
         let ul = new Vector2(left, top)
         let ur = new Vector2(right, top)
         let lr = new Vector2(right, bottom)
         let ll = new Vector2(left, bottom)
-
         return [ul, ur, lr, ll]
+    }
+
+    static getRectangleSegments(rect){
+        let [ul, ur, lr, ll] = this.getRectCorners(rect)
+        return[
+            new Line2(ul, ur),
+            new Line2(ur, lr),
+            new Line2(lr, ll),
+            new Line2(ll, ul)
+        ] 
     }
 
     static getLineEnds(line){
@@ -123,7 +140,7 @@ class Collisions{
         let toPointLeng = normTan.dot(toPoint)
 
         if (toPointLeng < 0) return p1
-        if (toPointleng > leng) return p2
+        if (toPointLeng > leng) return p2
         return pointOnLine
     }
 
@@ -165,7 +182,11 @@ class Collisions{
     }
 
     static circleLineSegment(circCenter, r, p1, p2){
-        if( circCenter.minus(Collisions.closestPointLineSeg(circCenter, p1, p2)).length() < r) return true
+        let closestPoint = this.closestPointLineSeg(circCenter, p1, p2)
+        let diff = circCenter.minus(closestPoint)
+        let leng = diff.length()
+        if(leng < r) return true
+        return false
     }
 
 }

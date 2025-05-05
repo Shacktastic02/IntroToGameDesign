@@ -1,9 +1,9 @@
 class Ally extends GameObject{
 
     start(){
-        this.addComponent(new Circle("black", "grey", 5))
-        this.addComponent(new NPCMovement("Ally"))
-        this.addComponent(new NumCollisions())
+        this.addComponent(new Circle("black", "grey", 1))
+        this.addComponent(new HealthPool(10))
+        this.addComponent(new RigidBody(0))
     }
 
     

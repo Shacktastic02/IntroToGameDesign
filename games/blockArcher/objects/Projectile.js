@@ -1,17 +1,15 @@
-class Projectile {
+class Projectile extends GameObject{
 
-    posX
-    posY
-    velX
-    velY
-
-    constructor(posX, posY) {
-        this.posX = posX
-        this.posY = posY
-        velX = 10
-        velY = 10
+    constructor(){
+        super()
+        this.addComponent(new Circle("black", "transparent", 0))
+        this.addComponent(new RigidBody(Globals.gravity))
+        this.addComponent(new ProjectileController())
     }
 
-
+    start(){
+        this.transform.r = 1
+        this.transform.h = 1
+    }
 
 }

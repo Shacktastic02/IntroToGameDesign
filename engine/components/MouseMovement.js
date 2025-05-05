@@ -1,4 +1,4 @@
-class MouseMovemoent extends component{
+class MouseMovemoent extends Component{
 
     start(){
         this.transform.x = 0

@@ -11,8 +11,8 @@ class Rectangle extends Component{
         ctx.beginPath()
         ctx.fillStyle = this.fillStyle
         ctx.strokeStyle = this.strokeStyle
-        ctx.lineWidth = this.lineWidth
-        ctx.rect(this.transform.x, this.transform.y, this.transform.wid, this.transform.len)
+        ctx.lineWidth = this.lineWidth / this.transform.r
+        ctx.rect(this.transform.x - this.transform.w/2, this.transform.y - this.transform.h/2, this.transform.w, this.transform.h)
 
         ctx.fill()
         ctx.stroke()

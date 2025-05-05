@@ -28,4 +28,18 @@ class Transform extends Component{
         this.h = val
     }
 
+    set Position(vector){
+        this.x = vector.x
+        this.y = vector.y
+    }
+
+    move(vector){
+        this.x += vector.x
+        this.y += vector.y
+    }
+
+    get position(){
+        return new Vector2(this.x, this.y)
+    }
+
 }

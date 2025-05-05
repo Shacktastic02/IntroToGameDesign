@@ -22,4 +22,8 @@ class Component{
     draw(){
         
     }
+
+    drawUI(){
+        
+    }
 }

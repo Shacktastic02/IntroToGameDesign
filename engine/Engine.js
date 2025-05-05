@@ -8,7 +8,11 @@ class Engine{
             Engine.nextScene = null
             Engine.curScene.start()
         }
+        
         Engine.currScene.update()
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+        ctx.clearRect(0,0,canvas.width, canvas.height)
         Engine.currScene.draw()
         Input.update()
     }
@@ -29,8 +33,7 @@ class Engine{
        
         canvas = document.getElementById("canv")
         ctx = canvas.getContext("2d")
-        canvas.width = 750
-        canvas.height = 450
+        
     }
 
     static start(){

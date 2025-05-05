@@ -11,10 +11,17 @@ class Circle extends Component{
         ctx.beginPath()
         ctx.fillStyle = this.fillStyle
         ctx.strokeStyle = this.strokeStyle
-        ctx.lineWidth = this.lineWidth
-        ctx.arc(this.transform.x, this.transform.y, this.transform.r, 0, Math.PI * 2)
+        ctx.lineWidth = this.lineWidth / this.transform.r
 
-        ctx.fill()
-        ctx.stroke()
+
+        ctx.save()
+
+            ctx.translate(this.transform.x, this.transform.y)
+            ctx.scale(this.transform.r, this.transform.r)
+            ctx.arc(0, 0, 1, 0, Math.PI * 2)
+            ctx.fill()
+            ctx.stroke()
+
+        ctx.restore()
     }
 }

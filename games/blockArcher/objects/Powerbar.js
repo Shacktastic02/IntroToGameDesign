@@ -1,0 +1,3 @@
+class PowerBar extends GameObject{
+    
+}

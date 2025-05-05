@@ -19,28 +19,37 @@
     <body>
         <canvas id="canv"></canvas>
 
+        <script src="engine/Camera.js"></script>
+        <script src="engine/Collisions.js"></script>
+        <script src="engine/Component.js"></script>
+        <script src="engine/Engine.js"></script>
+        <script src="engine/Events.js"></script>
+        <script src="engine/GameObject.js"></script>
+        <script src="engine/Globals.js"></script>
+        <script src="engine/Input.js"></script>
+        <script src="engine/Physics.js"></script>
         <script src="engine/Scene.js"></script>
         <script src="engine/Time.js"></script>
-        <script src="engine/Input.js"></script>
-        <script src="engine/GameObject.js"></script>
-        <script src="engine/Engine.js"></script>
-        <script src="engine/Component.js"></script>
-        <script src="engine/Collisions.js"></script>
-        <script src="engine/Globals.js"></script>
         <script src="engine/Vector2.js"></script>
 
-        <script src="engine/components/Rectangle.js"></script>
-        <script src="engine/components/Transform.js"></script>
-        <script src="engine/components/WASDMovement.js"></script>
         <script src="engine/components/Circle.js"></script>
         <script src="engine/components/Line.js"></script>
+        <script src="engine/components/Line2.js"></script>
         <script src="engine/components/MouseMovement.js"></script>
+        <script src="engine/components/PhysicsStatic.js"></script>
+        <script src="engine/components/Rectangle.js"></script>
         <script src="engine/components/RigidBody.js"></script>
+        <script src="engine/components/RigidBodyPlatformer.js"></script>
+        <script src="engine/components/RigidBodyReflective.js"></script>
         <script src="engine/components/Text.js"></script>
+        <script src="engine/components/Transform.js"></script>
+        <script src="engine/components/WASDMovement.js"></script>
+
 
         <script src="games/blockArcher/objects/Ally.js"></script>
         <script src="games/blockArcher/objects/Enemy.js"></script>
         <script src="games/blockArcher/objects/Player.js"></script>
+        <script src="games/blockArcher/objects/Powerbar.js"></script>
         <script src="games/blockArcher/objects/Projectile.js"></script>
 
         <script src="games/blockArcher/scenes/Level.js"></script>
@@ -48,10 +57,12 @@
         <script src="games/blockArcher/scenes/Menu.js"></script>
         <script src="games/blockArcher/scenes/Victory.js"></script>
 
-        <script src="games/blockArcher/components/NPCMovement.js"></script>
+        <script src="games/blockArcher/components/AllyController.js"></script>
         <script src="games/blockArcher/components/LevelController.js"></script>
-        <script src="games/blockArcher/components/NumCollisions.js"></script>
-
+        <script src="games/blockArcher/components/Healthpool.js"></script>
+        <script src="games/blockArcher/components/PlayerController.js"></script>
+        <script src="games/blockArcher/components/ProjectileController.js"></script>
+        
         <script>
 ///////////////////////////////////////////////GLOBALS/////////////////////////////////////////////////////////////////
            

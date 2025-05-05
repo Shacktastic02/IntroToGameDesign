@@ -54,11 +54,11 @@ class Input{
         Input.keysDownThisFrame = []
         Input.keysUpThisFrame = []
 
-        Input.keysDownThisFrame = false
-        Input.keysUpThisFrame = false
+        Input.mouseDownThisFrame = false
+        Input.mouseUpThisFrame = false
 
-        Input.lastMouseX = mouseX
-        Input.lastMouseY = mouseY
+        Input.lastMouseX = this.mouseX
+        Input.lastMouseY = this.mouseY
 
         Input.lastWheelDelta = 0
 

@@ -9,9 +9,9 @@ class RigidBody extends Component{
     }
 
     update(){
-        this.vy += gravity * Time.delta
+        this.vy += this.gravity * Time.delta
 
-        this.transform.x += vx * Time.delta
-        this.teansform.y += vy * Time.delta
+        this.transform.x += this.vx * Time.delta
+        this.transform.y += this.vy * Time.delta
     }
 }
