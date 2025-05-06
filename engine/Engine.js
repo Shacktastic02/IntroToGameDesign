@@ -7,7 +7,7 @@ class Engine{
         Time.delta = (ms - Engine.lastms)/1000
         Engine.lastms = ms
         if(Engine.nextScene){
-            Engine.curScene = Engine.nextScene
+            Engine.currScene = Engine.nextScene
             Engine.nextScene = null
         }
         

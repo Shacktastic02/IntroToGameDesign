@@ -1,6 +1,6 @@
 class LevelController extends Component{
 
-    npcSpeed = 20
+    npcSpeed = 10
 
     constructor(nextScene){
         super()
@@ -79,14 +79,14 @@ class LevelController extends Component{
         let posY = Math.floor(Math.random() * (110 - 140 + 1) + 140)
 
         // //spawn allies
-        if((Math.floor(Math.random() * (100 - 1 + 1)) + 1) <= 1){
-            Engine.currScene.addGameObject(new Ally("ally"), -5, posY , 3, 1, 1, 1)
-        }
+        // if((Math.floor(Math.random() * (100 - 1 + 1)) + 1) <= 1){
+        //     Engine.currScene.addGameObject(new Ally("ally"), -5, posY , 3, 1, 1, 1)
+        // }
 
         //spawn enemies
-        // if((Math.floor(Math.random() * (100 - 1 + 1)) + 1) <= 1){
-        //     Engine.currScene.addGameObject(new Enemy("enemy"), 305, posY , 3, 1, 1, 1)
-        // }
+        if((Math.floor(Math.random() * (100 - 1 + 1)) + 1) <= 1){
+            Engine.currScene.addGameObject(new Enemy("enemy"), 305, posY , 3, 1, 1, 1)
+        }
 
 
     }
