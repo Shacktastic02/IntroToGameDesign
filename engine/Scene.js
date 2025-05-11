@@ -7,9 +7,8 @@ class Scene{
         this.backgroundColor = backgroundColor
         this.started = false
 
-        if(typeof Camera !== undefined){
-            this.addGameObject(new GameObject("Camera"))
-        }
+
+        this.addGameObject(new GameObject("Camera"))
     }
 
     update(){
@@ -44,14 +43,9 @@ class Scene{
     }
 
     draw(){
-
-        ctx.fillStyle = this.backgroundColor
-        ctx.beginPath()
-        ctx.rect(0, 0, canvas.width, canvas.height)
-        ctx.fill()
         ctx.save()
         {
-            if(typeof Camers !== undefined){
+            if(typeof Camera !== undefined){
                 ctx.setTransform(Camera.getTransform())
             }
 

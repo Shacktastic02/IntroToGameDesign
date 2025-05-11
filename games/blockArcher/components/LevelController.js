@@ -1,17 +1,18 @@
 class LevelController extends Component{
 
-    npcSpeed = 10
+    npcSpeed = 50
 
     constructor(nextScene){
         super()
         this.nextScene = nextScene
 
-        Camera.main.transform.x = canvas.width / 2
+        Camera.main.transform.x = canvas.width /2
         Camera.main.transform.y = canvas.height / 2
         Camera.main.transform.w = canvas.width
         Camera.main.transform.h = canvas.height
-
-        Globals.gravity = 100
+        
+        Globals.gravity = 450
+        Globals.score = 0
     }
 
     update(){
@@ -20,6 +21,7 @@ class LevelController extends Component{
         let player = Engine.currScene.findGameObject("player")
         let allyHitboxes = Engine.currScene.findGameObjects("allyhitbox")
         let enemyHitboxes = Engine.currScene.findGameObjects("enemyhitbox")
+        let scoreText = Engine.currScene.findGameObject("score")
 
 
         //collision counts
@@ -72,20 +74,22 @@ class LevelController extends Component{
             }
             hitbox.destroy()
         }
+
+        scoreText.findComponent(UIText).text = ("Score: " + Globals.score)
         
 
 
         //generate random y value
-        let posY = Math.floor(Math.random() * (110 - 140 + 1) + 140)
+        let posY = Math.floor(Math.random() * (325 - 550 + 1) + 550)
 
-        // //spawn allies
-        // if((Math.floor(Math.random() * (100 - 1 + 1)) + 1) <= 1){
-        //     Engine.currScene.addGameObject(new Ally("ally"), -5, posY , 3, 1, 1, 1)
-        // }
-
-        //spawn enemies
+        // spawn allies
         if((Math.floor(Math.random() * (100 - 1 + 1)) + 1) <= 1){
-            Engine.currScene.addGameObject(new Enemy("enemy"), 305, posY , 3, 1, 1, 1)
+            Engine.currScene.addGameObject(new Ally("ally"), -5, posY , 13, 1, 1, 1)
+        }
+
+        // spawn enemies
+        if((Math.floor(Math.random() * (100 - 1 + 1)) + 1) <= 1){
+            Engine.currScene.addGameObject(new Enemy("enemy"), canvas.width-5, posY , 13, 1, 1, 1)
         }
 
 

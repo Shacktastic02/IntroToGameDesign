@@ -52,6 +52,7 @@
         <script src="games/blockArcher/objects/Player.js"></script>
         <script src="games/blockArcher/objects/Powerbar.js"></script>
         <script src="games/blockArcher/objects/Projectile.js"></script>
+        <script src="games/blockArcher/objects/WinObj.js"></script>
 
         <script src="games/blockArcher/scenes/Level.js"></script>
         <script src="games/blockArcher/scenes/Loss.js"></script>
@@ -59,12 +60,14 @@
         <script src="games/blockArcher/scenes/Victory.js"></script>
 
         <script src="games/blockArcher/components/AllyController.js"></script>
-        <script src="games/blockArcher/components/DebugTool.js"></script>
         <script src="games/blockArcher/components/EnemyController.js"></script>
         <script src="games/blockArcher/components/LevelController.js"></script>
+        <script src="games/blockArcher/components/LossController.js"></script>
+        <script src="games/blockArcher/components/MenuController.js"></script>
         <script src="games/blockArcher/components/Healthpool.js"></script>
         <script src="games/blockArcher/components/PlayerController.js"></script>
         <script src="games/blockArcher/components/ProjectileController.js"></script>
+        <script src="games/blockArcher/components/WinController.js"></script>
         
         <script>
 ///////////////////////////////////////////////GLOBALS/////////////////////////////////////////////////////////////////
@@ -72,7 +75,7 @@
            let canvas
            let ctx        
             
-            Engine.nextScene = new Level()
+            Engine.nextScene = new Menu()
             Engine.start()
             
             

@@ -1,9 +1,9 @@
 class PlayerController extends Component{
 
 
-    start(speed = 15){
+    start(speed = 100){
         this.speed = speed
-        this.power = 150
+        this.power = 550
     }
 
     update(){
@@ -21,11 +21,11 @@ class PlayerController extends Component{
         body.vy = v.normalized().y * this.speed
 
         //player bounds
-        if(this.transform.y < 110) this.transform.y = 110
-        if(this.transform.y > 140) this.transform.y = 140
+        if(this.transform.y < 300) this.transform.y = 300   
+        if(this.transform.y > 575) this.transform.y = 575
 
-        if(this.transform.x < 5) this.transform.x = 5
-        if(this.transform.x > 295) this.transform.x = 295
+        if(this.transform.x < 15) this.transform.x = 15
+        if(this.transform.x > canvas.width - 15) this.transform.x = canvas.width - 15
 
 
         //shooting

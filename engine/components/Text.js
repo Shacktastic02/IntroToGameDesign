@@ -15,7 +15,7 @@ class Text extends Component{
     }
 }
 
-class UIText extends Comment{
+class UIText extends Component{
     constructor(fill, font, text){
         super()
 

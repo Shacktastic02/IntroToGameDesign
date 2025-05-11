@@ -22,6 +22,9 @@ class ProjectileController extends Component{
                 if(Collisions.inCollision(this.parent, enemy)){
                     enemy.findComponent(HealthPool).hp -= 50
                     this.parent.destroy()
+                    if(enemy.findComponent(HealthPool).hp <= 0){
+                        Globals.score += 5
+                    }
                 }
             }
         }else{

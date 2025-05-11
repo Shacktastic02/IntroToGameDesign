@@ -15,6 +15,11 @@ class Engine{
         canvas.width = window.innerWidth
         canvas.height = window.innerHeight
         ctx.clearRect(0,0,canvas.width, canvas.height)
+
+        ctx.fillStyle = Engine.currScene.backgroundColor
+        ctx.beginPath()
+        ctx.rect(0, 0, canvas.width, canvas.height)
+        ctx.fill()
         Engine.currScene.draw()
         Input.update()
         requestAnimationFrame(Engine.tick)
@@ -36,6 +41,7 @@ class Engine{
        
         canvas = document.getElementById("canv")
         ctx = canvas.getContext("2d")
+
         
     }
 

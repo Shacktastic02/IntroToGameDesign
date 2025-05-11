@@ -8,8 +8,8 @@ class Projectile extends GameObject{
     }
 
     start(){
-        this.transform.r = 1
-        this.transform.h = 1
+        this.transform.r = 5
+        this.transform.h = 5
     }
 
 }

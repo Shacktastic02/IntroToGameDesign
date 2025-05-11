@@ -8,7 +8,7 @@ class AllyController extends Component{
     update(){
         if(this.parent.findComponent(RigidBody).vx == 0){
             if(this.timeTilSwing <= 0){
-                Engine.currScene.addGameObject(new Hitbox("allyhitbox"), this.transform.x+4, this.transform.y, 3, 1)
+                Engine.currScene.addGameObject(new Hitbox("allyhitbox"), this.transform.x, this.transform.y, 13, 1)
                 this.timeTilSwing = 10
             }
         }
@@ -16,7 +16,7 @@ class AllyController extends Component{
             this.timeTilSwing -= Time.delta
         }
 
-        if(this.transform.x > 300){
+        if(this.transform.x > canvas.width){
             this.parent.destroy()
             Engine.nextScene = new Victory()
         }

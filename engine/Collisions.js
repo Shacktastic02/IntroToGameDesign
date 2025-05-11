@@ -135,7 +135,7 @@ class Collisions{
         let pointOnLine = Collisions.closestPointInfLine(point, p1, p2)
         let tan = p2.minus(p1)
         let normTan = tan.normalized()
-        let leng = tan.length
+        let leng = tan.length()
         let toPoint = pointOnLine.minus(p1)
         let toPointLeng = normTan.dot(toPoint)
 
